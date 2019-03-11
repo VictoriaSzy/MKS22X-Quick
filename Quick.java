@@ -1,3 +1,6 @@
+import java.util.* ;
+import java.io.* ;
+
 public class Quick {
   /*Modify the array such that:
   *1. Only the indices from start to end inclusive are considered in range
