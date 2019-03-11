@@ -41,10 +41,10 @@ public class Quick {
   */
   public static int partition(int [] data, int start, int end) {
     int lim = end - start + 1 ;
-    System.out.println("The limit is " + lim) ;
+    //System.out.println("The limit is " + lim) ;
     int pivot = (int) Math.abs(Math.random() * lim) ;
     pivot += start ;
-    System.out.println("The pivot is: " + pivot) ;
+    //System.out.println("The pivot is: " + pivot) ;
     if (pivot != start) {
       swap(start, pivot, data) ;
       pivot = 0 ;
