@@ -20,16 +20,38 @@ public class Quick {
     System.out.println("Expected: 15\n\n") ;
     System.out.println(quickselect(ary, 5)) ; // would return 23
     System.out.println("Expected: 23\n\n") ;
+    System.out.println("\n*********************************Here is a new array!!*********************************") ;
+    int[] aa = {1, 6, 4, 3, 5, 2} ;
+    String re = "" ;
+    for (int i : aa) {
+      re += i + ", " ;
+    }
+    System.out.println(re) ;
+    System.out.println(quickselect(aa, 0)) ; // would return 1
+    System.out.println("Expected: 1\n\n") ;
+    System.out.println(quickselect(aa, 1)) ; // would return 2
+    System.out.println("Expected: 2\n\n") ;
+    System.out.println(quickselect(aa, 2)) ; // would return 3
+    System.out.println("Expected: 3\n\n") ;
   }
 
   /*return the value that is the kth smallest value of the array.
   */
   public static int quickselect(int[] data, int k) {
-    System.out.println("We are beginning quickselect now!") ;
+    //System.out.println("We are beginning quickselect now!") ;
     if (k < 0 || k >= data.length) {
       throw new IllegalArgumentException("k is not a valid argument!") ;
     }
-    return partition(data, 0, data.length - 1) ;
+    int p = partition(data, 0, data.length - 1) ;
+    while (p != k) {
+      // if it's greater than
+      if (k > p) p = partition(data, p, data.length - 1) ;
+      else {
+        // if it's less than
+        p = partition(data, 0, p) ;
+      }
+    }
+    return data[p] ;
   }
   /*Modify the array such that:
   *1. Only the indices from start to end inclusive are considered in range
@@ -41,38 +63,31 @@ public class Quick {
   */
   public static int partition(int [] data, int start, int end) {
     int lim = end - start + 1 ;
-    //System.out.println("The limit is " + lim) ;
     int pivot = (int) Math.abs(Math.random() * lim) ;
     pivot += start ;
     //System.out.println("The pivot is: " + pivot) ;
-    if (pivot != start) {
-      swap(start, pivot, data) ;
-      pivot = 0 ;
-      start ++ ;
-    }
-    // looping through and comparing values
-    while (start < end) {
-      if (data[start] > data[pivot]) {
-        // if it's greater than pivot
-        int b = data[end] ;
-        data[end] = data[start] ;
-        data[start] = b ;
-        end-- ;
-      }
-      else {
-        start++ ;
-      }
-    }
-    // final swaps and changes to pivot
-    if (data[start] <= data[pivot]) {
-      swap(start, pivot, data) ;
-      pivot = start ;
-    }
-    else {
-      swap(start - 1, pivot, data) ;
-      pivot = start - 1 ;
-    }
-    return data[pivot] ;
+    swap(start, pivot, data) ;
+    int val = data[start] ;
+    pivot = start ;
+    start ++ ;
+    while (start <= end) {
+      // goes until the end
+     if (data[start] > val) {
+       // if it's greater
+       swap(start, end, data) ;
+       end-- ;
+     }
+     else if (data[start] < val) {
+       swap(pivot, start, data) ;
+       start ++ ;
+       pivot ++ ;
+     }
+     else {
+       // data[start] = val
+       start++ ;
+     }
+   }
+   return pivot ;
   }
   // helper method to move around values
   public static void swap(int a, int b, int[] data) {
