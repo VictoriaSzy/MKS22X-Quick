@@ -33,6 +33,12 @@ public class Quick {
     System.out.println("Expected: 2\n\n") ;
     System.out.println(quickselect(aa, 2)) ; // would return 3
     System.out.println("Expected: 3\n\n") ;
+    System.out.println(quickselect(aa, 3)) ; // would return 4
+    System.out.println("Expected: 4\n\n") ;
+    System.out.println(quickselect(aa, 4)) ; // would return 5
+    System.out.println("Expected: 5\n\n") ;
+    System.out.println(quickselect(aa, 5)) ; // would return 4
+    System.out.println("Expected: 6\n\n") ;
   }
 
   /*return the value that is the kth smallest value of the array.
@@ -64,6 +70,7 @@ public class Quick {
   public static int partition(int [] data, int start, int end) {
     int lim = end - start + 1 ;
     int pivot = (int) Math.abs(Math.random() * lim) ;
+    //int pivot = ((end - start) / 2) + 1 ;
     pivot += start ;
     //System.out.println("The pivot is: " + pivot) ;
     swap(start, pivot, data) ;
