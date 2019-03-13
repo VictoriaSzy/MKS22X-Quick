@@ -41,6 +41,8 @@ public class Quick {
     System.out.println("Expected: 6\n\n") ;
   }
 
+
+
   /*return the value that is the kth smallest value of the array.
   */
   public static int quickselect(int[] data, int k) {
@@ -59,6 +61,7 @@ public class Quick {
     }
     return data[p] ;
   }
+
   /*Modify the array such that:
   *1. Only the indices from start to end inclusive are considered in range
   *2. A random index from start to end inclusive is chosen, the corresponding
@@ -68,34 +71,36 @@ public class Quick {
   *@return the index of the final position of the pivot element.
   */
   public static int partition(int [] data, int start, int end) {
-    int lim = end - start + 1 ;
-    int pivot = (int) Math.abs(Math.random() * lim) ;
-    //int pivot = ((end - start) / 2) + 1 ;
-    pivot += start ;
-    //System.out.println("The pivot is: " + pivot) ;
-    swap(start, pivot, data) ;
-    int val = data[start] ;
-    pivot = start ;
-    start ++ ;
-    while (start <= end) {
-      // goes until the end
-     if (data[start] > val) {
-       // if it's greater
+   /*int lim = start + end ;
+   lim = lim / 2 ;
+   int pivot = lim ;
+   int pivot = ((end - start) / 2) + 1 ; */
+   if (start == end) return start ;
+   int p = (start + end) / 2 ; // start at median or middle
+   int pivot = data[p] ;
+   //System.out.println("The pivot's value is: " + pivVal) ;
+   int temp = data[start] ;
+   data[start] = pivot ;
+   data[p] = temp ;
+   p = start ;
+   start++ ;
+   ///// while loop begins
+   while (start != end) {
+     if (data[start] >= pivot) {
        swap(start, end, data) ;
        end-- ;
      }
-     else if (data[start] < val) {
-       swap(pivot, start, data) ;
-       start ++ ;
-       pivot ++ ;
-     }
      else {
-       // data[start] = val
        start++ ;
      }
    }
-   return pivot ;
-  }
+   // done with while loop
+   if (data[p] < data[start]) start-- ;
+   // final steps
+   data[p] = data[start] ;
+   data[start] = pivot ;
+   return start ;
+ }
   // helper method to move around values
   public static void swap(int a, int b, int[] data) {
     int temp = data[a] ;
