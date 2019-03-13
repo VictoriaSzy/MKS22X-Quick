@@ -8,6 +8,7 @@ public class Quick {
     for (int i : ary) {
       res += i + ", " ;
     }
+    System.out.println("********************************TESTING QUICKSELECT!********************************") ;
     System.out.println(res) ;
     System.out.println("We are running quickselect and finding the 0th smallest element!\n" + quickselect(ary, 0 )) ; // would return 0
     System.out.println(quickselect(ary, 1)) ; // would return 2
@@ -20,7 +21,7 @@ public class Quick {
     System.out.println("Expected: 15\n\n") ;
     System.out.println(quickselect(ary, 5)) ; // would return 23
     System.out.println("Expected: 23\n\n") ;
-    System.out.println("\n*********************************Here is a new array!!*********************************") ;
+    System.out.println("\n*******Here is a new array!!*******") ;
     int[] aa = {1, 6, 4, 3, 5, 2} ;
     String re = "" ;
     for (int i : aa) {
@@ -39,6 +40,9 @@ public class Quick {
     System.out.println("Expected: 5\n\n") ;
     System.out.println(quickselect(aa, 5)) ; // would return 4
     System.out.println("Expected: 6\n\n") ;
+
+    System.out.println("********************************TESTING QUICKSORT!********************************") ;
+    int[] b = {} ;
   }
 
   /*Modify the array to be in increasing order.
@@ -50,6 +54,11 @@ public class Quick {
   public static void quicksortH(int[] data, int start, int end) {
     if (start >= end) return;
     int a = partition(data, start, end) ;
+    System.out.println("Position of pivot is: " + a) ;
+    boolean b1 = a > start ;
+    boolean b2 = a < end ;
+    System.out.println("a > start: " + b1) ;
+    System.out.println("a < end: " + b2) ;
     if (a > start) quicksortH(data, start, a - 1) ;
     if (a < end) quicksortH(data, a + 1, end) ;
   }
