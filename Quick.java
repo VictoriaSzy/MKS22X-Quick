@@ -3,13 +3,10 @@ import java.io.* ;
 
 public class Quick {
   public static void main(String[] args) {
+    /*
     int[]ary = { 2, 10, 15, 23, 0,  5} ;  //sorted :  {0,2,5,10,15,23}
-    String res = "" ;
-    for (int i : ary) {
-      res += i + ", " ;
-    }
     System.out.println("********************************TESTING QUICKSELECT!********************************") ;
-    System.out.println(res) ;
+    System.out.println(ary.toString()) ;
     System.out.println("We are running quickselect and finding the 0th smallest element!\n" + quickselect(ary, 0 )) ; // would return 0
     System.out.println(quickselect(ary, 1)) ; // would return 2
     System.out.println("Expected: 2\n\n") ;
@@ -23,11 +20,7 @@ public class Quick {
     System.out.println("Expected: 23\n\n") ;
     System.out.println("\n*******Here is a new array!!*******") ;
     int[] aa = {1, 6, 4, 3, 5, 2} ;
-    String re = "" ;
-    for (int i : aa) {
-      re += i + ", " ;
-    }
-    System.out.println(re) ;
+    System.out.println(aa.toString()) ;
     System.out.println(quickselect(aa, 0)) ; // would return 1
     System.out.println("Expected: 1\n\n") ;
     System.out.println(quickselect(aa, 1)) ; // would return 2
@@ -39,10 +32,14 @@ public class Quick {
     System.out.println(quickselect(aa, 4)) ; // would return 5
     System.out.println("Expected: 5\n\n") ;
     System.out.println(quickselect(aa, 5)) ; // would return 4
-    System.out.println("Expected: 6\n\n") ;
-
+    System.out.println("Expected: 6\n\n") ;*/
     System.out.println("********************************TESTING QUICKSORT!********************************") ;
-    int[] b = {} ;
+    int[] b = { 53, 62, 774, 21, 6, 26, 89, 689, 2 } ;
+    System.out.println(toString(b)) ;
+    System.out.println("We are going to run quicksort now!") ;
+    quicksort(b) ;
+    System.out.println("quicksort has finished! Here is how b looks now: \n") ;
+    System.out.println(toString(b)) ;
   }
 
   /*Modify the array to be in increasing order.
@@ -99,9 +96,9 @@ public class Quick {
    int p = (start + end) / 2 ; // start at median or middle
    int pivot = data[p] ;
    //System.out.println("The pivot's value is: " + pivVal) ;
-   int temp = data[start] ;
+   int tem = data[start] ;
    data[start] = pivot ;
-   data[p] = temp ;
+   data[p] = tem ;
    p = start ;
    start++ ;
    ///// while loop begins
@@ -116,7 +113,7 @@ public class Quick {
    }
    // done with while loop
    if (data[p] < data[start]) start-- ;
-   // final steps
+   // final switches
    data[p] = data[start] ;
    data[start] = pivot ;
    return start ;
@@ -126,5 +123,12 @@ public class Quick {
     int temp = data[a] ;
     data[a] = data[b] ;
     data[b] = temp ;
+  }
+  public static String toString(int[] a) {
+    String res = "" ;
+    for (int i = 0 ; i < a.length ; i++) {
+      res += a[i] + ", " ;
+    }
+    return res ;
   }
 }
