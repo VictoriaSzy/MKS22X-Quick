@@ -41,7 +41,18 @@ public class Quick {
     System.out.println("Expected: 6\n\n") ;
   }
 
-
+  /*Modify the array to be in increasing order.
+  */
+  public static void quicksort(int[] data) {
+    if (data.length > 0) quicksortH(data, 0, data.length - 1) ;
+  }
+  // helper method for quicksort
+  public static void quicksortH(int[] data, int start, int end) {
+    if (start >= end) return;
+    int a = partition(data, start, end) ;
+    if (a > start) quicksortH(data, start, a - 1) ;
+    if (a < end) quicksortH(data, a + 1, end) ;
+  }
 
   /*return the value that is the kth smallest value of the array.
   */
