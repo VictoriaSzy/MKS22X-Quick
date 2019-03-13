@@ -35,11 +35,19 @@ public class Quick {
     System.out.println("Expected: 6\n\n") ;*/
     System.out.println("********************************TESTING QUICKSORT!********************************") ;
     int[] b = { 53, 62, 774, 21, 6, 26, 89, 689, 2 } ;
-    System.out.println(toString(b)) ;
+    System.out.println("The size of array b is: " + b.length) ;
+    System.out.println("Here is how the array looks initially: \n" + toString(b)) ;
     System.out.println("We are going to run quicksort now!") ;
     quicksort(b) ;
     System.out.println("quicksort has finished! Here is how b looks now: \n") ;
     System.out.println(toString(b)) ;
+    int[] c = {124, 14, 32, 53, 2551, 524, 11, 43, 353, 22551, 221156777, 55, 3356, 67, 90, 649, 877, 878, 7535, 8869, 98769 } ;
+    System.out.println("The size of array c is: " + c.length) ;
+    System.out.println("Here is how the array looks initially: \n" + toString(c)) ;
+    System.out.println("We are going to run quicksort now!") ;
+    quicksort(c) ;
+    System.out.println("quicksort has finished! Here is how c looks now: \n") ;
+    System.out.println(toString(c)) ;
   }
 
   /*Modify the array to be in increasing order.
