@@ -161,7 +161,7 @@ public class Quick {
     start++ ;
     while (start != end) {
       int a = -1 ;
-      if ( data[start] == data[pivot] ) a = r.nextInt() % 2 ;
+      if ( data[start] == data[pivot] ) a = r.nextInt(2) ;
       if ( data[start] < data[pivot] || a == 0) {
         // if it's less than pivot
         start++;
