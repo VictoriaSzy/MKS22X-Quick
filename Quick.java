@@ -82,7 +82,18 @@ public class Quick {
     System.out.println("quicksort has finished! Here is how c looks now: \n") ;
     System.out.println(Arrays.toString(c)) ;*/
   }
-
+  private static int partitionDutch(int[],int lo, int hi) {
+    /*return an array [lt,gt]
+    index:          lt             i                    gt
+        |-----------|--------------|---------------------|----------|
+  regions:    r1           r2                r3               r4
+    r1 are less than the pivot
+    r2 are equal to the pivot
+    r3 are UNKNOWN!
+    r4 are greater than the pivot */
+    int lt = lo, gt = hi ;
+    return new int[] {lt, gt} ;
+  }
   /*Modify the array to be in increasing order.
   */
   public static void quicksort(int[] data) {
