@@ -120,7 +120,7 @@ public class Quick {
   public static void quicksortH(int[] data, int start, int end) {
     if (start >= end) return;
     int[] a = partitionDutch(data, start, end) ;
-    //System.out.println("Position of pivot is: " + a) ; for old sort before dutch partition
+    //System.out.println("Dutch partitioning shows us: " + Arrays.toString(a)) ;
     quicksortH(data, start, a[0] - 1) ;
     quicksortH(data, a[1] + 1, end) ;
   }
