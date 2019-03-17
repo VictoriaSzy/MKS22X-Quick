@@ -118,11 +118,21 @@ public class Quick {
   // helper method for quicksort
   public static void quicksortH(int[] data, int start, int end) {
     if (start >= end) return;
+    int[] a = partitionDutch(data, start, end) ;
+    //System.out.println("Position of pivot is: " + a) ; for old sort before dutch partition
+    quicksortH(data, start, a[0] - 1) ;
+    quicksortH(data, a[1] + 1, end) ;
+  }
+  //////////////// OLD VERSION OF quicksortH BEFORE partitionDutch:
+  /*
+  public static void quicksortH(int[] data, int start, int end) {
+    if (start >= end) return;
     int a = partition(data, start, end) ;
-    //System.out.println("Position of pivot is: " + a) ;
+    //System.out.println("Position of pivot is: " + a)
     quicksortH(data, start, a - 1) ;
     quicksortH(data, a + 1, end) ;
   }
+  */
 
   /*return the value that is the kth smallest value of the array.
   */
