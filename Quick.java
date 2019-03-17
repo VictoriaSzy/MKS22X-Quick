@@ -4,7 +4,7 @@ import java.io.* ;
 public class Quick {
   public static void main(String[] args) {
     // Mr. K's Driver
-    System.out.println("Size\t\tMax Value\tquick/builtin ratio ");
+    /*System.out.println("Size\t\tMax Value\tquick/builtin ratio ");
     int[]MAX_LIST = {1000000000,500,10};
     for(int MAX : MAX_LIST){
       for(int size = 31250; size < 2000001; size*=2){
@@ -35,7 +35,7 @@ public class Quick {
         System.out.println(size +"\t\t"+MAX+"\t"+1.0*qtime/btime);
       }
       System.out.println();
-    }
+    }*/
     /*
     int[]ary = { 2, 10, 15, 23, 0,  5} ;  //sorted :  {0,2,5,10,15,23}
     System.out.println("********************************TESTING QUICKSELECT!********************************") ;
