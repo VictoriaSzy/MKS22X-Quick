@@ -92,6 +92,12 @@ public class Quick {
     r3 are UNKNOWN!
     r4 are greater than the pivot */
     int lt = lo, gt = hi ;
+    int i = lt + 1 ;
+    int piv = lo ;
+    while (i < gt) {
+      if (a[i] == a[piv]) i++ ;
+      // we don't need to move that element
+    }
     return new int[] {lt, gt} ;
   }
   /*Modify the array to be in increasing order.
