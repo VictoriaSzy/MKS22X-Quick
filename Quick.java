@@ -82,7 +82,7 @@ public class Quick {
     System.out.println("quicksort has finished! Here is how c looks now: \n") ;
     System.out.println(Arrays.toString(c)) ;*/
   }
-  private static int partitionDutch(int[],int lo, int hi) {
+  private static int[] partitionDutch(int[] a, int lo, int hi) {
     /*return an array [lt,gt]
     index:          lt             i                    gt
         |-----------|--------------|---------------------|----------|
