@@ -90,11 +90,11 @@ public class Quick {
     r1 are less than the pivot
     r2 are equal to the pivot
     r3 are UNKNOWN!
-    r4 are greater than the pivot */
+    r4 are greater than the pivot*/
     int lt = lo, gt = hi ;
     int i = lt + 1 ;
     int piv = lo ;
-    while (i < gt) {
+    while (i <= gt) {
       if (data[i] == data[piv]) i++ ;
       // we don't need to move that element
       else if (data[i] < data[piv]) {
@@ -106,6 +106,7 @@ public class Quick {
       else {
         // it's greater than the pivot
         swap(gt, i, data) ; // swap the end
+        gt-- ;
       }
     }
     return new int[] {lt, gt} ;
